@@ -1,0 +1,27 @@
+<div class="app-card">
+    <div class="app-container">
+      <div class="app-video-call">
+        <div class="video-container">
+          <video #localVideo class="local-video" autoplay muted></video>
+  
+          <div *ngFor="let stream of remoteStreams">
+            <video class="remote-video" [srcObject]="stream" autoplay></video>
+          </div>
+        </div>
+  
+        
+        <div class="controls">
+          <button mat-raised-button color="primary" (click)="startCall()">Start Call</button>
+          <button mat-icon-button (click)="toggleVideo()" aria-label="Toggle Video">
+            <mat-icon *ngIf="!isVideoEnabled">videocam_off</mat-icon>
+            <mat-icon *ngIf="isVideoEnabled">videocam</mat-icon>
+          </button>
+          <button mat-icon-button (click)="toggleAudio()" aria-label="Toggle Audio">
+            <mat-icon *ngIf="!isAudioEnabled">mic_off</mat-icon>
+            <mat-icon *ngIf="isAudioEnabled">mic</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

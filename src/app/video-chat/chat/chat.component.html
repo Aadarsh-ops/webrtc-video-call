@@ -1,0 +1,17 @@
+<div class="chat-container">
+  <div class="messages">
+    <div *ngFor="let msg of messages" class="message">
+      <strong>{{ msg.user }}:</strong> {{ msg.text }}
+    </div>
+  </div>
+
+  <div class="input-container">
+    <input
+      [(ngModel)]="messageInput"
+      placeholder="Type a message"
+      (keyup.enter)="sendMessage()"
+      matInput
+    />
+    <button mat-raised-button color="primary" (click)="sendMessage()">Send</button>
+  </div>
+</div>
